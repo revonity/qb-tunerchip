@@ -20,7 +20,7 @@ RegisterNetEvent('smallresource:client:LoadNitrous', function()
     local veh = GetVehiclePedIsIn(ped)
 
     if not NitrousActivated then
-        if IsInVehicle and not IsThisModelABike(GetEntityModel(GetVehiclePedIsIn(ped))) then
+        if IsInVehicle and not IsThisModelABike(GetEntityModel(GetVehiclePedIsIn(ped))) and not IsPedInAnyPlane(ped) and not IsPedInAnyHeli(ped) and not IsPedInAnyBoat(ped) then
             if GetPedInVehicleSeat(veh, -1) == ped then
                 QBCore.Functions.Progressbar("use_nos", "Connecting NOS...", 1000, false, true, {
                     disableMovement = false,
